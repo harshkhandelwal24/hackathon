@@ -1,0 +1,16 @@
+name: CI Build & Test
+on:
+  pull_request:
+    types: [closed] # Fire when the PR is closed (includes merges)
+jobs:
+  build:
+    if: github.event.pull_request.merged == true # Proceed only for merged PRs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Hello, GitHub Actions!
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
